@@ -1,15 +1,13 @@
 <?php 
-//connection
-include("connection.php");
-
 session_start();
         if(isset($_POST['Username'])){
-				
+				//connection
+                  include("connection.php");
 				//รับค่า user & password
                   $Username = $_POST['Username'];
                   $Password = md5($_POST['Password']);
 				//query 
-                  $sql="SELECT * FROM user Where Username='".$Username."' and Password='".$Password."' ";
+                  $sql="SELECT * FROM User Where Username='".$Username."' and Password='".$Password."' ";
 
                   $result = mysqli_query($con,$sql);
 				
@@ -44,7 +42,7 @@ session_start();
         }else{
 
 
-             Header("Location: form_login.php"); //user & password incorrect back to login again
+             Header("Location: form.php"); //user & password incorrect back to login again
 
         }
 ?>
